@@ -1,0 +1,39 @@
+Procedure Main
+
+LOCAL nome := SPACE(30)
+LOCAL sobrenome := SPACE(30)
+LOCAL ddata := date()
+LOCAL signo := SPACE(15)
+LOCAL altura := SPACE(4)
+LOCAL peso := SPACE(6)
+
+hb_cdpSelect("UTF8")
+
+cls
+    
+set date brit
+set cent on
+
+@01, 01 SAY "Digite seu nome: " GET nome valid !Empty(nome)
+@02, 01 SAY "Digite seu sobrenome: " GET sobrenome valid !Empty(sobrenome)
+@03, 01 SAY "Informe sua data de nascimento: " GET ddata 
+@04, 01 SAY "Qual é o seu signo? " GET signo valid !Empty(signo)
+@05, 01 SAY "Qual é a sua altura? " GET altura //PICTURE "@E 0.00" valid !Empty(altura)
+@06, 01 SAY "Qual é o seu peso? " GET peso //PICTURE "@E 00.00" valid !Empty(peso)
+READ
+
+@07, 01 SAY ""
+? "Seu nome é: ", + nome
+? "Seu sobrenome é: ", + sobrenome
+? "Nasceu em: ", + ddata
+? "Seu signo é: ", + signo
+? "Sua altura é: ", + altura + "m"
+? "Seu peso é: ", + peso + "kg"
+
+    Inkey(0)
+
+cls
+
+Return
+
+//Nome, Sobrenome, Data de Nascimento, Signo, Idade, Altura, Peso
