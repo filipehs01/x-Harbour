@@ -1,0 +1,22 @@
+Function Main()
+
+SET DATE BRIT
+SET CENT ON
+
+hb_cdpSelect("UTF8")
+
+cls
+
+oPessoa := Cadastro():new("Filipe", "Henrique", "Libra", "1.77m", "73.90 kg")
+oPessoa:nasc := CTOD("14/10/1996")
+
+? "Nome:      ", oPessoa:nome
+? "Sobrenome: ", oPessoa:sobreNome
+? "Signo:     ", oPessoa:signo
+? "Altura:    ", oPessoa:altura
+? "Peso:      ", oPessoa:peso
+?"Idade:      "
+oPessoa:idade()
+
+//? WAPI_GETCURRENTPROCESSID()
+Inkey(0)
