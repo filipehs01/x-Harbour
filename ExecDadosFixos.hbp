@@ -19,7 +19,7 @@
 -lhbxpp
 
 # Principal
-ExPrincipal.prg
+ExibirDadosFixos.prg
 
 # Objetos / Classes
-ClasseEx1.prg
+ClassePrincipal.prg
