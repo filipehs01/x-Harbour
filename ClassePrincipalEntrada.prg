@@ -5,41 +5,37 @@ CLASS cCadastro
     DATA nome //:= SPACE(30)
     DATA sobreNome //:= SPACE(30)
     DATA nasc //:= date()
+    DATA idade
     DATA signo //:= SPACE(15)
     DATA altura //:= SPACE(4)
     DATA peso //:= SPACE(6)
 
-    METHOD cNome(nome, sobreNome, signo, altura, peso) 
-    METHOD Idade(nasc)
-    METHOD Show()
+    METHOD cNome() 
+    METHOD pShow()
 
 ENDCLASS
 
-METHOD cNome(nome, sobreNome, nasc, signo, altura, peso) CLASS cCadastro
+METHOD cNome() CLASS cCadastro
 
-    ::nome := nome
-    ::sobreNome := sobreNome
-    ::signo := signo
-    ::altura := altura
-    ::peso  := peso
-
+    ACCEPT "Digite seu nome: " TO ::nome
+    ACCEPT "Digite seu sobrenome: " TO ::sobreNome
+    ACCEPT "Qual é o seu signo? " TO ::signo
+    ACCEPT "Qual é a sua altura? " TO ::altura
+    ACCEPT "Qual é o seu peso? " TO ::peso
+    ACCEPT "Informe sua data de nascimento: " TO ::nasc
+    
+    ::nasc := CTOD(::nasc)
+    
 RETURN Self
 
-METHOD Idade()
-    ::nasc := nasc
-    oIdade := CTOD(oCadastro:nasc)
-    //? "Você tem ", INT((date() - oCadastro:nasc) / 365), "anos"
+METHOD pShow()
 
-RETURN
-
-METHOD Show()
-
-    ? "Seu nome é:   ", oCadastro:nome, oCadastro:sobreNome
-    ? "Seu signo é:  ", oCadastro:signo
-    ? "Sua altura é: ", oCadastro:altura, "m"
-    ? "Seu peso é:   ", oCadastro:peso, "kg" 
-    ? "Nasceu em:    ", oCadastro:nasc 
-    ? "Você tem ", INT((date() - oCadastro:nasc) / 365), "anos"
+    ? "Seu nome é:   ", ::nome, ::sobreNome
+    ? "Seu signo é:  ", ::signo
+    ? "Sua altura é: ", ::altura, "m"
+    ? "Seu peso é:   ", ::peso, "kg" 
+    ? "Nasceu em:    ", ::nasc 
+    ? "Você tem ", ::idade:= INT((date() - ::nasc) / 365), "anos"
 
 RETURN
 
